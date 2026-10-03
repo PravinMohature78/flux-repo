@@ -1,0 +1,4 @@
+.DS_Store
+
+# Preserve the original nested repository locally.
+/interview-local/
