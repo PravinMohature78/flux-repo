@@ -15,4 +15,4 @@ spec:
     - name: infrastructure
   postBuild:
     substitute:
-      CLUSTER_NAME: "new-cluster"
+      CLUSTER_NAME: "old-cluster"
