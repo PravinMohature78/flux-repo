@@ -6,8 +6,6 @@ metadata:
 spec:
   selector:
     app: operator
-  type: NodePort
   ports:
     - port: 9000
       targetPort: 9000
-      nodePort: 30900

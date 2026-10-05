@@ -111,8 +111,8 @@ docker network connect migration-net old-cluster-worker
 ### 5. Load the mock service images
 
 ```bash
-kind load docker-image mock-gateway:latest --name old-cluster
-kind load docker-image mock-operator:latest --name old-cluster
+kind load docker-image mock-gateway:latest --name new-cluster
+kind load docker-image mock-operator:latest --name new-cluster
 ```
 
 ### 6. Bootstrap FluxCD
