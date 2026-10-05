@@ -93,12 +93,12 @@ docker network create migration-net
 ### 4. Create the cluster
 
 ```bash
-cat <<EOF | kind create cluster --name old-cluster --config=-
+cat <<EOF | kind create cluster --name new-cluster --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 networking:
-  podSubnet: "10.244.0.0/16"
-  serviceSubnet: "10.96.0.0/16"
+  podSubnet: "10.245.0.0/16"
+  serviceSubnet: "10.97.0.0/16"
 nodes:
   - role: control-plane
   - role: worker
@@ -107,12 +107,14 @@ EOF
 docker network connect migration-net old-cluster-control-plane
 docker network connect migration-net old-cluster-worker
 ```
+docker network connect migration-net new-cluster-control-plane
+docker network connect migration-net new-cluster-worker
 
 ### 5. Load the mock service images
 
 ```bash
-kind load docker-image mock-gateway:latest --name old-cluster
-kind load docker-image mock-operator:latest --name old-cluster
+kind load docker-image mock-gateway:latest --name new-cluster
+kind load docker-image mock-operator:latest --name new-cluster
 ```
 
 ### 6. Bootstrap FluxCD
